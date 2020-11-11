@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Curso JS - Desafio - Exercício 03</title>
+    <meta charset="utf-8"/>
+
+    <style type="text/css">
+
+    </style>
+  </head>
+ 
+  <body>
+    <div id="app">
+      <input type="text" id="nameInput">
+      <button class="button" id="goButton">Go!</button>
+      <div>
+        <ul class="list" id="namesList">
+
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      var inputElement = document.querySelector('#nameInput')
+      var buttonElement = document.querySelector('#goButton');
+      var containerElement = document.querySelector('#app');
+      var listNamesElement = document.querySelector('#namesList');
+    
+      buttonElement.onclick = function() {
+        var nameElement = document.createElement('li');
+        listNamesElement.appendChild(nameElement);
+
+        var textElement = document.createTextNode(inputElement.value);
+        nameElement.appendChild(textElement);
+
+        document.querySelector('#nameInput').value = '';
+      }
+    </script>
+  </body>
+</html>
