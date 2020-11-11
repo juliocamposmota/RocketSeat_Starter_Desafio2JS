@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Curso JS - Desafio - Exercício 02</title>
+    <meta charset="utf-8"/>
+
+    <style type="text/css">
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        float:right;
+        background-color: red;
+      }
+    </style>
+  </head>
+ 
+  <body>
+    <div id="app">
+      <button class="button" id="go">Go!</button>
+    </div>
+
+    <script>
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      };
+
+      function mouseOver(element) {
+        var newColor = getRandomColor();
+        element.style.backgroundColor = newColor;
+      };
+
+      function mouseOut(element) {
+        element.style.backgroundColor = 'red';
+      }
+
+      var buttonElement = document.querySelector('#go');
+      var containerElement = document.querySelector('#app'); 
+    
+      buttonElement.onclick = function() {
+        var boxElement = document.createElement('div');
+        boxElement.setAttribute('class', 'box');
+        boxElement.setAttribute('onmouseover', 'mouseOver(this)');
+        // boxElement.setAttribute('onmouseout', 'mouseOut(this)'); 
+        containerElement.appendChild(boxElement);
+      }
+    </script>
+  </body>
+</html>
